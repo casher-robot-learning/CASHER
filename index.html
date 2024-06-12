@@ -181,9 +181,15 @@
     </div>
     <div class="columns is-centered">
       <div class="column">
-        <img
-        class="fit-picture"
-        src="materials/images/figure1_v6.png"/>
+          <video id="method-video"
+          muted
+          autoplay
+          loop
+
+          width="80%">
+          <source src="materials/videos/teaser.m4v"
+          type="video/mp4">
+          </video>
       </div>
       </div>
     <!-- Paper video. -->
@@ -194,7 +200,7 @@
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
           <h2 class="subtitle has-text-centered">
-            <b>RialTo</b> robustifies policies originally trained from real-world data in the simulation leveraging 3D reconstruction techniques to transfer the real-world scene to the simulator.
+            <b>SCAR</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
           </h2>
         </div>
       </div>
@@ -202,15 +208,7 @@
     
       <div class="columns is-centered">
         <div class="column">
-            <video id="method-video"
-            muted
-            autoplay
-            loop
-
-            width="80%">
-            <source src="materials/videos/teaservideorialto.mp4"
-            type="video/mp4">
-            </video>
+          <img src="materials/images/scar-pipeline.gif" />
         </div>
         </div>
 
