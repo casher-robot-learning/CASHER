@@ -124,11 +124,11 @@
         <center>
             <div class="author-row-new">
                 <a href="https://marceltorne.github.io/">Marcel Torne<sup>1</sup></a>,
-                <a href="">Arhan Jain<sup>2</sup></a>,
-                <a href="">Vidyaaranya Macha<sup>2</sup></a>,
-                <a href="">Jiayi Yuan<sup>2</sup></a>,
-                <a href="">Lars Lien Ankile<sup>1</sup></a>,
-                <a href="">Anthony Simeonov<sup>1</sup></a>,
+                <a href="https://www.linkedin.com/in/arhanjain/">Arhan Jain<sup>2</sup></a>,
+                <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2</sup></a>,
+                <a href="https://yuanjiay.github.io/">Jiayi Yuan<sup>2</sup></a>,
+                <a href="https://ankile.com/">Lars Lien Ankile<sup>1</sup></a>,
+                <a href="https://anthonysimeonov.github.io/">Anthony Simeonov<sup>1</sup></a>,
                 <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1*</sup></a>,
                 <a href="https://abhishekunique.github.io">Abhishek Gupta<sup>2*</sup></a>
             </div>
@@ -196,7 +196,7 @@
     <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/H0TQCbTSGVY?rel=0&amp;showinfo=0"
+            <iframe src="https://www.youtube.com/embed/8nqH-ompq2o"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
           <h2 class="subtitle has-text-centered">
@@ -322,82 +322,18 @@
       </div>
 
     <hr>
-
-    <div class="columns is-centered">
-      <div class="column">
-          <h2 class="title is-3">Robustness Results</h2>
-          Task    
-          <div class="select is-small">     
-            <select id="single-menu-tasks-single-task-real" onchange="updatesingletaskreal()">
-      <option value="plate_on_rack">plate_on_rack</option>
-      <option value="mug_on_shelf" selected="selected">mug_on_shelf</option> 
-      <option value="book_on_shelf">book_on_shelf</option>        
-      <option value="open_kitchen_toaster">open_kitchen_toaster</option>
-      <option value="cup_in_trash">cup_in_trash</option>
-      <option value="open_drawer">open_drawer</option>
-      <option value="plate_on_rack_wild">plate_on_rack_wild</option>
-      
-            </select>
-          </div>
-          robustness to
-          <div class="select is-small">
-            <select id="single-menu-robustness-single-task-real" onchange="updatesingletaskreal()">
-            <option value="object_pose" >object_pose</option>
-            <option value="distractors">distractors</option>
-            <option value="disturbances" selected="selected">disturbances</option>
-            </select>
-          </div>
-          <div class="container  ">
-              <!-- Paper video. -->
-              <div class="columns is-centered has-text-centered">
-                <div class="column one-third"  width="30%">
-                  <h3 class="title is-4">RialTo</h3>
-          
-                  <div class="columns">
-                    <div class="column has-text-centered">			
-                      <video id="single-task-result-video-single-task-rialto"
-                             controls
-                             muted
-                             autoplay
-                             loop
-  
-                             width="80%">
-                        <source src="materials/videos/mugandshelfdisturbances.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-              </div>        
-                <div class="column is-half">
-                  <h3 class="title is-4">Imitation Learning</h3>
-                  <div class="columns">
-                    <div class="column has-text-centered">		
-                      <video  border-radius="10px" poster="" autoplay controls muted loop playsinline id="single-task-result-video-single-task-imitation-learning"
-                             controls
-                             muted
-                             autoplay
-                             loop
-                             width="80%">
-                        <source src="materials/videos/mugandshelfdisturbancesil.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-              </div>
-  
-      </div>
-      <hr>
        
 
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
           <h2 class="title">BibTeX</h2>
-          <pre><code>@article{torne2024rialto,
+          <pre><code>@article{torne2024scar,
         author    = {Torne, Marcel 
-                    and Simeonov, Anthony 
-                    and Li, Zechu 
-                    and Chan, April 
-                    and Chen, Tao 
+                    and Jain, Arhan 
+                    and Vidyaaranya, Macha 
+                    and Yuan, Jiayi 
+                    and Ankile, Lars Lien
+                    and Simeonov, Anthony
                     and Gupta, Abhishek 
                     and Agrawal, Pulkit},
         title     = {Scaling Robot-Learning by Crowdsourcing Simulation Environments},
