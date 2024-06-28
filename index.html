@@ -124,7 +124,7 @@
         <center>
             <div class="author-row-new">
                 <a href="https://marceltorne.github.io/">Marcel Torne<sup>1</sup></a>,
-                <a href="">Arhan Jain<sup>2</sup></a>,
+                <a href="https://arhanjain.github.io/">Arhan Jain<sup>2</sup></a>,
                 <a href="">Vidyaaranya Macha<sup>2</sup></a>,
                 <a href="">Jiayi Yuan<sup>2</sup></a>,
                 <a href="">Lars Lien Ankile<sup>1</sup></a>,
@@ -200,7 +200,7 @@
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
           <h2 class="subtitle has-text-centered">
-            <b>SCAR</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
+            <b class="method">SCAR</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
           </h2>
         </div>
       </div>
@@ -221,7 +221,7 @@
             <p>
               Scaling robot learning requires data collection pipelines that scale favorably with human effort to ensure a 
               sufficient diversity and quality of expert data. In this work, we propose Scaling, Crowdsourcing and Amortizing 
-              Real-to-sim-to-real - <b>SCAR</b>, a pipeline for scaling up data collection and learning generalist policies where 
+              Real-to-sim-to-real - <b class="method">SCAR</b>, a pipeline for scaling up data collection and learning generalist policies where 
               human effort scales sublinearly with the number of environments where data is collected. The key idea is to 
               crowdsource digital twins of real-world scenes using 3D reconstruction techniques and collect large-scale data 
               in these simulation scenes, rather than in the real-world. Data collection in simulation is initially driven by 
@@ -229,9 +229,9 @@
               progresses across environments, the generalization capabilities of the learned generalist policy can be used to 
               replace human effort with model generated demonstrations. This results in a pipeline where environments are easily 
               sourced from non-experts through 3D capture, while behavioral data is collected with continually reducing amounts of 
-              human effort. We analyze the zero-shot and few-shot scaling laws of <b>SCAR</b> on two real-world tasks: placing mugs/bowls/cups 
+              human effort. We analyze the zero-shot and few-shot scaling laws of <b class="method">SCAR</b> on two real-world tasks: placing mugs/bowls/cups 
               into a sink and placing boxes on a shelf across a diverse range of environments. We also demonstrate the capabilities 
-              of the <b>SCAR</b> pipeline to finetune trained policies in a target scenario using a novel unsupervised fine-tuning 
+              of the <b class="method">SCAR</b> pipeline to finetune trained policies in a target scenario using a novel unsupervised fine-tuning 
               technique that can improve behavior simply using 3D environments scans at test time, without requiring additional 
               human demonstrations.
             </p>
@@ -242,82 +242,44 @@
 
       <div class="columns is-centered">
         <div class="column">
-          <h2 class="title is-3"><b>RialTo</b> learns policies robust policies to object poses, visual distractors and physical disturbances</h2>
-          <section class="hero is-light is-small">
-            <div class="hero-body">
-                <div class="container">
-                  <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item item-steve">
-                      <video poster="" id="steve" autoplay controls muted loop  height=300px>
-                        <source src="materials/videos/booknshelfrealtime.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-chair-tp">
-                      <video poster="" id="chair-tp" autoplay controls muted loop  height=300px>
-                        <source src="materials/videos/mugrealtime2.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-shiba">
-                      <video poster="" id="shiba" autoplay controls muted loop  height=300px>
-                        <source src="materials/videos/cabinetrealtime2.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-fullbody">
-                      <video poster="" id="fullbody" autoplay controls muted loop  height=300px>
-                        <source src="materials/videos/dishinrackdisturbances.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-blueshirt">
-                      <video poster="" id="blueshirt" autoplay controls muted loop  height=300px>
-                        <source src="materials/videos/drawerrealtime2.mp4"
-                                type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </section>
+          <h2 class="title is-2">Robustness of <b class="method">SCAR</b></h2>
         </div>
-    </div>
+      </div>
     <section id="overview-videos">
         <div class="columns is-centered">
             <div class="column">
-              <h2 class="title is-3"><b>RialTo</b> scales to in-the-wild environments</h2>
+              <h2 class="title is-3">Out-of-distribution environments and objects</h2>
               <section class="hero is-light is-small">
                 <div class="hero-body">
                   <div class="container">
                     <div id="results-carousel" class="carousel results-carousel">
                       <div class="item item-steve">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/kitchendisturbances.mp4"
+                          <source src="materials/videos/smaller/snack_overflow_right.mp4"
                                   type="video/mp4">
                         </video>
                       </div>
                       <div class="item item-chair-tp">
                         <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/cupntrashreal.mp4"
+                          <source src="materials/videos/smaller/me_ugrad_left.mp4"
                                   type="video/mp4">
                         </video>
                       </div>
                       <div class="item item-chair-tp">
                         <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/dishsinklabrand.mp4"
+                          <source src="materials/videos/smaller/me_conf.mp4"
                                   type="video/mp4">
                         </video>
                       </div>
                       <div class="item item-steve">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/kitchentoasterdistractors.mp4"
+                          <source src="materials/videos/smaller/mccarty_floor_2_right.mp4"
                                   type="video/mp4">
                         </video>
                       </div>
                       <div class="item item-steve">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/cupntrashrand.mp4"
+                          <source src="materials/videos/smaller/mccarty_floor_1_left.mp4"
                                   type="video/mp4">
                         </video>
                       </div>
@@ -330,26 +292,64 @@
 
         <div class="columns is-centered">
             <div class="column">
-              <h2 class="title is-3"><b>RialTo</b> leverages digital twins of real-world scenes to fine-tune the policies</h2>
+              <h2 class="title is-3">Multi-object Settings</h2>
+              <section class="hero is-light is-small">
+                <div class="hero-body">
+                    <div class="container">
+                      <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item item-chair-tp">
+                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
+                                    type="video/mp4">
+                          </video>
+                        </div>
+                        <div class="item item-chair-tp">
+                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
+                                    type="video/mp4">
+                          </video>
+                        </div>
+                        <div class="item item-chair-tp">
+                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
+                          <!--   <source src="materials/videos/multiobject-zeroshot-all3.mp4" -->
+                          <!--           type="video/mp4"> -->
+                          <!-- </video> -->
+                        </div>
+                        <div class="item item-chair-tp">
+                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
+                          <!--   <source src="materials/videos/multiobject-zeroshot-all3.mp4" -->
+                          <!--           type="video/mp4"> -->
+                          <!-- </video> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+              <h2 class="title is-3">Messy environments, Lighting, and Physical Disturbances</h2>
               <section class="hero is-light is-small">
                 <div class="hero-body">
                     <div class="container">
                       <div id="results-carousel" class="carousel results-carousel">
                         <div class="item item-steve">
                           <video poster="" id="steve" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/kitchensim.mp4"
+                            <source src="materials/videos/smaller/lowlight-zeroshot.mp4"
                                     type="video/mp4">
                           </video>
                         </div>
                         <div class="item item-chair-tp">
                           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/cupntrashsim.mp4"
+                            <source src="materials/videos/smaller/messy-zerosot.mp4"
                                     type="video/mp4">
                           </video>
                         </div>
                         <div class="item item-blueshirt">
                             <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/dishinracksim.mp4"
+                              <source src="materials/videos/smaller/disturbance-zeroshot.mp4"
                                       type="video/mp4">
                             </video>
                         </div>
@@ -359,23 +359,11 @@
                                       type="video/mp4">
                             </video>
                           </div>
-                        <div class="item item-shiba">
-                          <video poster="" id="shiba" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/drawersim.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-fullbody">
-                          <video poster="" id="fullbody" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/cabinetsim.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
                         <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/dishsinklabsim.mp4"
-                                    type="video/mp4">
-                          </video>
+                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
+                          <!--   <source src="materials/videos/dishsinklabsim.mp4" -->
+                          <!--           type="video/mp4"> -->
+                          <!-- </video> -->
                         </div>
                       </div>
                     </div>
@@ -388,158 +376,6 @@
     </section>
 
 
-      <hr>
-
-    <div class="columns is-centered">
-    <div class="column">
-        <h2 class="title is-3">Robustness Results</h2>
-        Task    
-        <div class="select is-small">     
-          <select id="single-menu-tasks-single-task-real" onchange="updatesingletaskreal()">
-    <option value="plate_on_rack">plate_on_rack</option>
-    <option value="mug_on_shelf" selected="selected">mug_on_shelf</option> 
-    <option value="book_on_shelf">book_on_shelf</option>        
-    <option value="open_kitchen_toaster">open_kitchen_toaster</option>
-    <option value="cup_in_trash">cup_in_trash</option>
-    <option value="open_drawer">open_drawer</option>
-    <option value="plate_on_rack_wild">plate_on_rack_wild</option>
-    
-          </select>
-        </div>
-        robustness to
-        <div class="select is-small">
-          <select id="single-menu-robustness-single-task-real" onchange="updatesingletaskreal()">
-          <option value="object_pose" >object_pose</option>
-          <option value="distractors">distractors</option>
-          <option value="disturbances" selected="selected">disturbances</option>
-          </select>
-        </div>
-        <div class="container  ">
-            <!-- Paper video. -->
-            <div class="columns is-centered has-text-centered">
-              <div class="column one-third"  width="30%">
-                <h3 class="title is-4">RialTo</h3>
-        
-                <div class="columns">
-                  <div class="column has-text-centered">			
-                    <video id="single-task-result-video-single-task-rialto"
-                           controls
-                           muted
-                           autoplay
-                           loop
-
-                           width="80%">
-                      <source src="materials/videos/mugandshelfdisturbances.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-            </div>        
-              <div class="column is-half">
-                <h3 class="title is-4">Imitation Learning</h3>
-                <div class="columns">
-                  <div class="column has-text-centered">		
-                    <video  border-radius="10px" poster="" autoplay controls muted loop playsinline id="single-task-result-video-single-task-imitation-learning"
-                           controls
-                           muted
-                           autoplay
-                           loop
-                           width="80%">
-                      <source src="materials/videos/mugandshelfdisturbancesil.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-            </div>
-
-    </div>
-    <hr>
-
-    <div class="columns is-centered">
-        <div class="column">
-          <h2 class="title is-3">RialTo Overview</h2>
-          <h2 class="title is-4">1. Scan your target environment</h2>
-          <div class="columns is-centered">
-                <div class="column">
-                    <video id="method-video"
-                    controls
-                    muted
-                    autoplay
-                    loop
-
-                    width="80%">
-                    <source src="materials/videos/scanvideo.mp4"
-                    type="video/mp4">
-                    </video>
-                </div>
-            </div>
-          <h2 class="title is-4">2. Use RialTo's GUI to construct your environment</h2>
-          <div class="columns is-centered">
-            <div class="column">
-                <video id="method-video"
-                controls
-                muted
-                autoplay
-                loop
-
-                width="80%">
-                <source src="materials/videos/guivideo.mp4"
-                type="video/mp4">
-                </video>
-            </div>
-            </div>
-          <h2 class="title is-4">3. Collect demonstrations in the real world and transfer them to the simulation</h2>
-
-          <div class="columns is-centered">
-            <div class="column">
-                <video id="method-video"
-                controls
-                muted
-                autoplay
-                loop
-
-                width="80%">
-                <source src="materials/videos/inversedistillvideo.mp4"
-                type="video/mp4">
-                </video>
-            </div>
-            </div>
-          <h2 class="title is-4">4. RL fine-tuning in simulation</h2>
-          <div class="columns is-centered">
-            <div class="column">
-                <video id="method-video"
-                controls
-                muted
-                autoplay
-                loop
-
-                width="80%">
-                <source src="materials/videos/rlfinetuningvideo.mp4"
-                type="video/mp4">
-                </video>
-            </div>
-            </div>
-
-          <h2 class="title is-4">5. Teacher-student distillation with real-world demos co-training</h2>
-          <div class="columns is-centered">
-            <div class="column">
-                <video id="method-video"
-                controls
-                muted
-                autoplay
-                loop
-
-                width="80%">
-                <source src="materials/videos/teacherstudentdistillationvideo.mp4"
-                type="video/mp4">
-                </video>
-            </div>
-            </div>
-        </div>
-      </div>
-
-    <hr>
-       
 
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
