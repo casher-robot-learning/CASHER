@@ -293,8 +293,41 @@
                 </video>
             </div>
             </div>
-          <h2 class="title is-4">3. RL fine-tuning from demonstrations. </h2>
-
+            <h2 class="title is-4">3. (Optional) Create articulated object and mark the site in GUI.</h2>
+            <div class="columns is-centered">
+              <div class="column">
+                  <video id="method-video"
+                  controls
+                  muted
+                  autoplay
+                  loop
+  
+                  width="80%">
+                  <source src="materials/videos/gui.mp4"
+                  type="video/mp4">
+                  </video>
+              </div>
+            </div>
+            <h2 class="title is-5">Scene construction estimated time</h2>
+                <table>
+                  <tr>
+                    <th style="padding: 5px">	</th>
+                    <th style="padding: 5px">Scanning Scene</th>
+                    <th style="padding: 5px">Scanning Objects</th>
+                    <th style="padding: 5px">Setting up object-to-sink scene</th>
+                    <th style="padding: 5px">Setting up object-to-cabinet scene</th>
+                    <th style="padding: 5px">Setting up open cabinet (articulated) scene</th>
+                  </tr>
+                  <tr>
+                    <td style="padding: 5px">Time </td>
+                    <td style="padding: 5px">3 min 15 sec</td>
+                    <td style="padding: 5px">4 min 50 sec</td>
+                    <td style="padding: 5px">1 min 30 sec</td>
+                    <td style="padding: 5px">1 min 30 sec</td>
+                    <td style="padding: 5px">3 min</td>
+                  </tr>
+                </table>
+          <h2 class="title is-4">4. RL fine-tuning from demonstrations. </h2>
           <div class="columns is-centered">
             <div class="column">
                 <video id="method-video"
@@ -309,7 +342,7 @@
                 </video>
             </div>
             </div>
-          <h2 class="title is-4">4. Teacher-student distillation from state-based policy to a generalist visuomotor policy.</h2>
+          <h2 class="title is-4">5. Teacher-student distillation from state-based policy to a generalist visuomotor policy.</h2>
           <div class="columns is-centered">
             <div class="column">
                 <video id="method-video"
@@ -327,12 +360,63 @@
         </div>
       </div>
     </div>
-       
-        
   </section>
+       
+  <hr>
 
 
-    <hr>
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-2">Tasks</b></h2>
+        </div>
+      </div>
+      <h2 class="title is-4">Pick up bowl/cup/mug and put into the sink</h2>
+        <div class="columns is-centered">
+          <div class="column">
+              <video id="method-video"
+              controls
+              muted
+              autoplay
+              loop
+
+              width="80%">
+              <source src="materials/videos/obj2sink.mov"
+              type="video/mp4">
+              </video>
+          </div>
+        </div>
+      <h2 class="title is-4">Pick up box and put into the cabinet</h2>
+        <div class="columns is-centered">
+          <div class="column">
+              <video id="method-video"
+              controls
+              muted
+              autoplay
+              loop
+
+              width="80%">
+              <source src="materials/videos/obj2cabinet.mov"
+              type="video/mp4">
+              </video>
+          </div>
+        </div>
+      <h2 class="title is-4">Open the cabinet</h2>
+        <div class="columns is-centered">
+          <div class="column">
+              <video id="method-video"
+              controls
+              muted
+              autoplay
+              loop
+
+              width="80%">
+              <source src="materials/videos/open_cabinet.mov"
+              type="video/mp4">
+              </video>
+          </div>
+        </div>
+
+  <hr>
   
 
       <div class="columns is-centered">
@@ -449,17 +533,55 @@
                             </video>
                         </div>
                         <div class="item item-blueshirt">
-                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
                               <source src="materials/videos/booknshelfsim.mp4"
                                       type="video/mp4">
-                            </video>
+                            </video> -->
                           </div>
-                        <div class="item item-chair-tp">
+                        <!-- <div class="item item-chair-tp"> -->
                           <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
                           <!--   <source src="materials/videos/dishsinklabsim.mp4" -->
                           <!--           type="video/mp4"> -->
                           <!-- </video> -->
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                  </div>
+              </section>
+              <section class="hero is-light is-small">
+                <div class="hero-body">
+                    <div class="container">
+                      <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item item-steve">
+                          <video poster="" id="steve" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/obj2cab-lowlight-fewshot.mp4"
+                                    type="video/mp4">
+                          </video>
                         </div>
+                        <div class="item item-chair-tp">
+                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/obj2cab-messy-fewshot.mp4"
+                                    type="video/mp4">
+                          </video>
+                        </div>
+                        <div class="item item-blueshirt">
+                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                              <source src="materials/videos/smaller/disturbance-zeroshot.mp4"
+                                      type="video/mp4">
+                            </video> -->
+                        </div>
+                        <div class="item item-blueshirt">
+                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                              <source src="materials/videos/booknshelfsim.mp4"
+                                      type="video/mp4">
+                            </video> -->
+                          </div>
+                        <!-- <div class="item item-chair-tp"> -->
+                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
+                          <!--   <source src="materials/videos/dishsinklabsim.mp4" -->
+                          <!--           type="video/mp4"> -->
+                          <!-- </video> -->
+                        <!-- </div> -->
                       </div>
                     </div>
                   </div>
