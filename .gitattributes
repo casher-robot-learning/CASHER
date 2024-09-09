@@ -1,4 +1,1 @@
-materials/videos/teaser+paper.mp4 filter=lfs diff=lfs merge=lfs -text
-materials/videos/obj2cabinet.mov filter=lfs diff=lfs merge=lfs -text
-materials/videos/obj2sink.mov filter=lfs diff=lfs merge=lfs -text
-materials/videos/open_cabinet.mov filter=lfs diff=lfs merge=lfs -text
+
