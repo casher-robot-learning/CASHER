@@ -175,5 +175,4 @@ cython_debug/
 *.pth
 wandb
 traj/
-videos/
 models
