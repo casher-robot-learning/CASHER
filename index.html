@@ -64,13 +64,13 @@
 <script type="text/javascript" src="../js/hidebib.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
     <head>
-        <title> Scaling Robot-Learning by Crowdsourcing Simulation Environments</title>
+        <title> Robot Learning with Super-Linear Scaling</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:description" content="Scaling Robot-Learning by Crowdsourcing Simulation Environments"/>
+        <meta property="og:description" content="Robot Learning with Super-Linear Scaling"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:creator" content="@marceltornev">
-        <meta name="twitter:title" content="Scaling Robot-Learning by Crowdsourcing Simulation Environments">
+        <meta name="twitter:title" content="Robot Learning with Super-Linear Scaling">
         <meta name="twitter:description" content="">
         <meta name="twitter:image" content="">
 
@@ -117,16 +117,19 @@
     <div class="paper-title">
         <br><br>
     <h1> 
-        Scaling Robot-Learning by Crowdsourcing Simulation Environments
+        CASHER: Robot Learning with Super-Linear Scaling
     </div>
 
     <div id="authors">
         <center>
             <div class="author-row-new">
-                <a href="https://marceltorne.github.io/">Marcel Torne<sup>1</sup></a>,
+                <a href="https://marceltorne.github.io/">Marcel Torne<sup>1,3</sup></a>,
                 <a href="https://arhanjain.github.io/">Arhan Jain<sup>2</sup></a>,
-                <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2</sup></a>,
                 <a href="https://yuanjiay.github.io/">Jiayi Yuan<sup>2</sup></a>,
+                <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2</sup></a>,
+                <a href="">Emma Romig<sup>2</sup></a>,
+                <a href="">Numfor Mbiziwo-Tiapo<sup>2</sup></a>,
+                <a href="">Sumedh Panatula<sup>2</sup></a>,
                 <a href="https://ankile.com/">Lars Lien Ankile<sup>1</sup></a>,
                 <a href="https://anthonysimeonov.github.io/">Anthony Simeonov<sup>1</sup></a>,
                 <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1</sup></a>,
@@ -137,6 +140,7 @@
         <div class="affiliations">
             <span><sup>1</sup> Massachusetts Institute of Technology </span>
             <span><sup>2</sup> University of Washington</span>
+            <span><sup>3</sup> Stanford University </span>
         </div>
 
 <!-- 
@@ -185,7 +189,7 @@
           loop
 
           width="80%">
-          <source src="materials/videos/teaser.m4v"
+          <source src="materials/videos/teaser.mp4"
           type="video/mp4">
           </video>
       </div>
@@ -194,13 +198,11 @@
     <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="subtitle has-text-centered">
-            <b>SCAR</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
+            <b>CASHER</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
           </h2>
-          <div style="clear: both">
-            <a class="paper-btn" href="https://www.youtube.com/embed/v2rdVk0m1ps">
-              <span class="material-icons"> ondemand_video </span> 
-               Video
-            </a>
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/8nqH-ompq2o"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -212,21 +214,35 @@
           <h2 class="title is-3">Abstract</h2>
           <div id="abstract" class="flex-row">
             <p>
-              Scaling robot learning requires data collection pipelines that scale favorably with human effort to ensure a 
-              sufficient diversity and quality of expert data. In this work, we propose Scaling, Crowdsourcing and Amortizing 
-              Real-to-sim-to-real - <b>SCAR</b>, a pipeline for scaling up data collection and learning generalist policies where 
-              human effort scales sublinearly with the number of environments where data is collected. The key idea is to 
-              crowdsource digital twins of real-world scenes using 3D reconstruction techniques and collect large-scale data 
-              in these simulation scenes, rather than in the real-world. Data collection in simulation is initially driven by 
-              reinforcement learning bootstrapped with human demonstrations. However, as the training of a generalist policy 
-              progresses across environments, the generalization capabilities of the learned generalist policy can be used to 
-              replace human effort with model generated demonstrations. This results in a pipeline where environments are easily 
-              sourced from non-experts through 3D capture, while behavioral data is collected with continually reducing amounts of 
-              human effort. We analyze the zero-shot and few-shot scaling laws of <b>SCAR</b> on two real-world tasks: placing mugs/bowls/cups 
-              into a sink and placing boxes on a shelf across a diverse range of environments. We also demonstrate the capabilities 
-              of the <b>SCAR</b> pipeline to finetune trained policies in a target scenario using a novel unsupervised fine-tuning 
-              technique that can improve behavior simply using 3D environments scans at test time, without requiring additional 
-              human demonstrations.
+              Scaling robot learning requires data collection pipelines
+            that scale favorably with human effort to ensure a
+            sufficient diversity and quality of expert data. In this
+            work, we propose Crowdsourcing and Amortizing Human Effort
+            for Real-to-Sim-to-Real (<b>CASHER</b>), a pipeline for scaling up
+            data collection and learning generalist policies where the
+            performance scales superlinearly with respect to human
+            effort. The key idea is to crowdsource digital twins of
+            real-world scenes using 3D reconstruction techniques and
+            collect large-scale data in these simulation scenes, rather
+            than in the real-world. Data collection in simulation is
+            initially driven by reinforcement learning bootstrapped
+            with human demonstrations. However, as the training of a
+            generalist policy progresses across environments, the
+            generalization capabilities of the learned generalist
+            policy can be used to replace human effort with model
+            generated demonstrations. This results in a pipeline where
+            environments are easily sourced from non-experts through 3D
+            capture, while behavioral data is collected with
+            continually reducing amounts of human effort. We analyze
+            the zero-shot and few-shot scaling laws of <b>CASHER</b> on three
+            real-world tasks: placing mugs/bowls/cups into a sink,
+            placing boxes on a shelf and opening cabinets across a
+            diverse range of environments. We also demonstrate the
+            capabilities of the <b>CASHER</b> pipeline to finetune trained
+            policies in a target scenario using a novel unsupervised
+            fine-tuning technique that can improve behavior simply
+            using 3D environments scans at test time, without requiring
+            additional human demonstrations.
             </p>
         </div>
         </div>
@@ -239,7 +255,7 @@
           loop
 
           width="80%">
-          <source src="materials/videos/scar-pipeline.m4v"
+          <source src="materials/videos/casher-pipeline.m4v"
           type="video/mp4">
           </video>
         </div>
@@ -263,7 +279,7 @@
 
     <div class="columns is-centered">
         <div class="column">
-          <h2 class="title is-3">SCAR Overview</h2>
+          <h2 class="title is-3">CASHER Overview</h2>
           <h2 class="title is-4">1. Crowdsource a batch of real world scenes. </h2>
           <div class="columns is-centered">
                 <div class="column">
@@ -279,22 +295,8 @@
                     </video>
                 </div>
             </div>
-          <h2 class="title is-4">2. Collect demonstrations in the simulation.</h2>
-          <div class="columns is-centered">
-            <div class="column">
-                <video id="method-video"
-                controls
-                muted
-                autoplay
-                loop
 
-                width="80%">
-                <source src="materials/videos/demo.m4v"
-                type="video/mp4">
-                </video>
-            </div>
-            </div>
-            <h2 class="title is-4">3. (Optional) Create articulated object and mark the site in GUI.</h2>
+            <h2 class="title is-4">2. (Optional) Create articulated object and mark the site in GUI.</h2>
             <div class="columns is-centered">
               <div class="column">
                   <video id="method-video"
@@ -308,6 +310,21 @@
                   type="video/mp4">
                   </video>
               </div>
+            </div>
+          <h2 class="title is-4">3. Collect demonstrations in the simulation.</h2>
+          <div class="columns is-centered">
+            <div class="column">
+                <video id="method-video"
+                controls
+                muted
+                autoplay
+                loop
+
+                width="80%">
+                <source src="materials/videos/demo.m4v"
+                type="video/mp4">
+                </video>
+            </div>
             </div>
             <h2 class="title is-5">Scene construction estimated time</h2>
                 <table>
@@ -419,7 +436,7 @@
 
       <div class="columns is-centered">
         <div class="column">
-          <h2 class="title is-2">Robustness of <b class="method">SCAR</b></h2>
+          <h2 class="title is-2">Robustness of <b class="method">CASHER</b></h2>
         </div>
       </div>
     <section id="overview-videos">
@@ -487,16 +504,16 @@
                           </video>
                         </div>
                         <div class="item item-chair-tp">
-                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
-                          <!--   <source src="materials/videos/multiobject-zeroshot-all3.mp4" -->
-                          <!--           type="video/mp4"> -->
-                          <!-- </video> -->
+                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
+                                    type="video/mp4">
+                          </video>
                         </div>
                         <div class="item item-chair-tp">
-                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
-                          <!--   <source src="materials/videos/multiobject-zeroshot-all3.mp4" -->
-                          <!--           type="video/mp4"> -->
-                          <!-- </video> -->
+                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
+                                    type="video/mp4">
+                          </video>
                         </div>
                       </div>
                     </div>
@@ -531,55 +548,17 @@
                             </video>
                         </div>
                         <div class="item item-blueshirt">
-                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/booknshelfsim.mp4"
+                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                              <source src="materials/videos/smaller/obj2cab-lowlight-fewshot.mp4"
                                       type="video/mp4">
-                            </video> -->
+                            </video>
                           </div>
-                        <!-- <div class="item item-chair-tp"> -->
-                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
-                          <!--   <source src="materials/videos/dishsinklabsim.mp4" -->
-                          <!--           type="video/mp4"> -->
-                          <!-- </video> -->
-                        <!-- </div> -->
-                      </div>
-                    </div>
-                  </div>
-              </section>
-              <section class="hero is-light is-small">
-                <div class="hero-body">
-                    <div class="container">
-                      <div id="results-carousel" class="carousel results-carousel">
-                        <div class="item item-steve">
-                          <video poster="" id="steve" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/obj2cab-lowlight-fewshot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/obj2cab-messy-fewshot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-blueshirt">
-                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/smaller/disturbance-zeroshot.mp4"
+                          <div class="item item-blueshirt">
+                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                              <source src="materials/videos/smaller/obj2cab-messy-fewshot.mp4"
                                       type="video/mp4">
-                            </video> -->
-                        </div>
-                        <div class="item item-blueshirt">
-                            <!-- <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/booknshelfsim.mp4"
-                                      type="video/mp4">
-                            </video> -->
+                            </video>
                           </div>
-                        <!-- <div class="item item-chair-tp"> -->
-                          <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px> -->
-                          <!--   <source src="materials/videos/dishsinklabsim.mp4" -->
-                          <!--           type="video/mp4"> -->
-                          <!-- </video> -->
-                        <!-- </div> -->
                       </div>
                     </div>
                   </div>
@@ -597,7 +576,7 @@
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
           <h2 class="title">BibTeX</h2>
-          <pre><code>@article{torne2024scar,
+          <pre><code>@article{torne2024casher,
         author    = {Torne, Marcel 
                     and Jain, Arhan 
                     and Vidyaaranya, Macha 
@@ -606,7 +585,7 @@
                     and Simeonov, Anthony
                     and Gupta, Abhishek 
                     and Agrawal, Pulkit},
-        title     = {Scaling Robot-Learning by Crowdsourcing Simulation Environments},
+        title     = {Robot Learning with Super-Linear Scaling},
         journal   = {Arxiv},
         year      = {2024},
       }</code></pre>
