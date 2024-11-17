@@ -127,9 +127,6 @@
                 <a href="https://arhanjain.github.io/">Arhan Jain<sup>2</sup></a>,
                 <a href="https://yuanjiay.github.io/">Jiayi Yuan<sup>2</sup></a>,
                 <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2</sup></a>,
-                <a href="">Emma Romig<sup>2</sup></a>,
-                <a href="">Numfor Mbiziwo-Tiapo<sup>2</sup></a>,
-                <a href="">Sumedh Panatula<sup>2</sup></a>,
                 <a href="https://ankile.com/">Lars Lien Ankile<sup>1</sup></a>,
                 <a href="https://anthonysimeonov.github.io/">Anthony Simeonov<sup>1</sup></a>,
                 <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1</sup></a>,
@@ -160,6 +157,10 @@
                 <span class="material-icons"> code </span>
                 Code
             </a>
+            <a class="paper-btn" href="">
+              <span class="material-icons" href="https://www.youtube.com/watch?v=s7U2Nk3oPog"> movie </span>
+              Video 
+          </a>
             <a class="paper-btn" href="https://github.com/real-to-sim-to-real/RialToGUI">
                 <span class="material-icons"> link </span>
                 GUI 
@@ -189,7 +190,7 @@
           loop
 
           width="80%">
-          <source src="materials/videos/teaser.mp4"
+          <source src="materials/videos/teaser_casher2.mp4"
           type="video/mp4">
           </video>
       </div>
@@ -198,15 +199,15 @@
     <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="subtitle has-text-centered">
-            <b class="method">CASHER</b> robustifies robot policies by scaling up data collection and learning generalist policies, where human effort scales sublinearly with the number of environments where data is collected.
+            <b class="method">CASHER</b> proposes a new technique using Real-to-Sim-to-Real for training and fine-tuning generalist policies in simulation with super-linear scaling with respect to the amount of human demonstrations provided.
           </h2>
-          <div class="publication-video">
+          <!-- <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/s7U2Nk3oPog"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+          </div> -->
         </div>
-      </div>
-      <!--/ Paper video. -->
+    </div>
+    <!--/ Paper video. -->
     <hr>
 
     <div class="columns is-centered">
@@ -247,39 +248,237 @@
         </div>
         </div>
       </div>
+      <hr>
+
+
+        
+
+      <div class="columns is-centered">
+      <div class="column">
+
+          <h2 class="title is-3">In <b class="method">CASHER</b> we train a generalist policy with Real-to-Sim-to-Real.</h2>
+          Task    
+          <div class="select is-small">     
+            <select id="single-menu-tasks-single-task-real" onchange="updatesingletaskreal()">
+      <option value="plate_on_rack">plate_on_rack</option>
+      <option value="mug_on_shelf" selected="selected">mug_on_shelf</option> 
+      <option value="book_on_shelf">book_on_shelf</option>        
+      <option value="open_kitchen_toaster">open_kitchen_toaster</option>
+      <option value="cup_in_trash">cup_in_trash</option>
+      <option value="open_drawer">open_drawer</option>
+      <option value="plate_on_rack_wild">plate_on_rack_wild</option>
+      
+            </select>
+          </div>
+          robustness to
+          <div class="select is-small">
+            <select id="single-menu-robustness-single-task-real" onchange="updatesingletaskreal()">
+            <option value="object_pose" >object_pose</option>
+            <option value="distractors">distractors</option>
+            <option value="disturbances" selected="selected">disturbances</option>
+            </select>
+          </div>
+
+          <div class="container  ">
+            <!-- Paper video. -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column one-third"  width="30%">
+                <p>TODO: placeholder here we should have the web viewer</p>
+        
+                <div class="columns">
+                  <div class="column has-text-centered">			
+                    <video id="single-task-result-video-single-task-rialto"
+                           controls
+                           muted
+                           autoplay
+                           loop
+
+                           width="50%">
+                      <source src="materials/videos/mugandshelfdisturbances.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+            </div>        
+            </div>
+            <hr>     
+
+
       <div class="columns is-centered">
         <div class="column">
-          <video id="method-video"
-          muted
-          autoplay
-          loop
+          <h2 class="title is-3"><b class="method">CASHER</b>'s paradigm allows us to finetune generalist policies without additional human demos on a digital twin of your target environment. </h2>
 
-          width="80%">
-          <source src="materials/videos/casher-pipeline.m4v"
-          type="video/mp4">
-          </video>
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="method-video"
+            muted
+            autoplay
+            loop
+
+            width="80%">
+            <source src="materials/videos/scanned_deployment_finetuning.mov"
+            type="video/mp4">
+            </video>
+          </div>
         </div>
+      </div>
+
+
+    </div>
+    <hr>
+
+
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-2">Robustness of <b class="method">CASHER</b></h2>
+      </div>
+    </div>
+  <section id="overview-videos">
+      <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3">Out-of-distribution environments and objects</h2>
+            <section class="hero is-light is-small">
+              <div class="hero-body">
+                <div class="container">
+                  <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item item-steve">
+                      <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="materials/videos/smaller/snack_overflow_right.mp4"
+                                type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-chair-tp">
+                      <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="materials/videos/smaller/me_ugrad_left.mp4"
+                                type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-chair-tp">
+                      <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="materials/videos/smaller/me_conf.mp4"
+                                type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-steve">
+                      <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="materials/videos/smaller/mccarty_floor_2_right.mp4"
+                                type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-steve">
+                      <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="materials/videos/smaller/mccarty_floor_1_left.mp4"
+                                type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
 
+      <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3">Multi-object Settings</h2>
+            <section class="hero is-light is-small">
+              <div class="hero-body">
+                  <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                      <div class="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+          </div>
+      </div>
+
+      <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3">Messy environments, Lighting, and Physical Disturbances</h2>
+            <section class="hero is-light is-small">
+              <div class="hero-body">
+                  <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                      <div class="item item-steve">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/lowlight-zeroshot.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
+                          <source src="materials/videos/smaller/messy-zerosot.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="item item-blueshirt">
+                          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/disturbance-zeroshot.mp4"
+                                    type="video/mp4">
+                          </video>
+                      </div>
+                      <div class="item item-blueshirt">
+                          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/obj2cab-lowlight-fewshot.mp4"
+                                    type="video/mp4">
+                          </video>
+                        </div>
+                        <div class="item item-blueshirt">
+                          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
+                            <source src="materials/videos/smaller/obj2cab-messy-fewshot.mp4"
+                                    type="video/mp4">
+                          </video>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+          </div>
+      </div>
+     
       <hr>
-
-    </div>
-    <section id="overview-videos">
-    </div>
-
-    </div>
-       
-        
-    </section>
-
-
-      <hr>
-
-    
-
     <div class="columns is-centered">
         <div class="column">
           <h2 class="title is-3"><b class="method">CASHER</b> Overview</h2>
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="method-video"
+              muted
+              autoplay
+              loop
+    
+              width="80%">
+              <source src="materials/videos/casher-pipeline.m4v"
+              type="video/mp4">
+              </video>
+            </div>
+          </div>
+
           <h2 class="title is-4">1. Crowdsource a batch of real world scenes. </h2>
           <div class="columns is-centered">
                 <div class="column">
@@ -433,139 +632,6 @@
 
   <hr>
   
-
-      <div class="columns is-centered">
-        <div class="column">
-          <h2 class="title is-2">Robustness of <b class="method">CASHER</b></h2>
-        </div>
-      </div>
-    <section id="overview-videos">
-        <div class="columns is-centered">
-            <div class="column">
-              <h2 class="title is-3">Out-of-distribution environments and objects</h2>
-              <section class="hero is-light is-small">
-                <div class="hero-body">
-                  <div class="container">
-                    <div id="results-carousel" class="carousel results-carousel">
-                      <div class="item item-steve">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/smaller/snack_overflow_right.mp4"
-                                  type="video/mp4">
-                        </video>
-                      </div>
-                      <div class="item item-chair-tp">
-                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/smaller/me_ugrad_left.mp4"
-                                  type="video/mp4">
-                        </video>
-                      </div>
-                      <div class="item item-chair-tp">
-                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/smaller/me_conf.mp4"
-                                  type="video/mp4">
-                        </video>
-                      </div>
-                      <div class="item item-steve">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/smaller/mccarty_floor_2_right.mp4"
-                                  type="video/mp4">
-                        </video>
-                      </div>
-                      <div class="item item-steve">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                          <source src="materials/videos/smaller/mccarty_floor_1_left.mp4"
-                                  type="video/mp4">
-                        </video>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-
-        <div class="columns is-centered">
-            <div class="column">
-              <h2 class="title is-3">Multi-object Settings</h2>
-              <section class="hero is-light is-small">
-                <div class="hero-body">
-                    <div class="container">
-                      <div id="results-carousel" class="carousel results-carousel">
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/multiobject-zeroshot-all3.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/multiobject-zeroshot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </section>
-            </div>
-        </div>
-
-        <div class="columns is-centered">
-            <div class="column">
-              <h2 class="title is-3">Messy environments, Lighting, and Physical Disturbances</h2>
-              <section class="hero is-light is-small">
-                <div class="hero-body">
-                    <div class="container">
-                      <div id="results-carousel" class="carousel results-carousel">
-                        <div class="item item-steve">
-                          <video poster="" id="steve" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/lowlight-zeroshot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-chair-tp">
-                          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height=300px>
-                            <source src="materials/videos/smaller/messy-zerosot.mp4"
-                                    type="video/mp4">
-                          </video>
-                        </div>
-                        <div class="item item-blueshirt">
-                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/smaller/disturbance-zeroshot.mp4"
-                                      type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item item-blueshirt">
-                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/smaller/obj2cab-lowlight-fewshot.mp4"
-                                      type="video/mp4">
-                            </video>
-                          </div>
-                          <div class="item item-blueshirt">
-                            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height=300px>
-                              <source src="materials/videos/smaller/obj2cab-messy-fewshot.mp4"
-                                      type="video/mp4">
-                            </video>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-              </section>
-            </div>
-        </div>
-       
         
     </section>
 
