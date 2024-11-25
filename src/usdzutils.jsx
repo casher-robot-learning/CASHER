@@ -21,11 +21,13 @@ export class USDZScene {
     this.scene = new THREE.Scene();
     this.scene.name = 'scene';
 
-    this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.001, 100 );
-    this.camera.name = 'PerspectiveCamera';
-    this.camera.position.set(0,-1,1.5);
-    this.camera.rotation.set(0,0,0)
-    this.scene.add(this.camera);
+    // camera setup
+    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 50 );
+    this.camera.position.set(0,1,1.5);
+    this.camera.far = 100;
+    this.camera.updateProjectionMatrix();
+
+
 
     this.scene.background = new THREE.Color(0.92, 0.83, 1);
 
@@ -41,16 +43,28 @@ export class USDZScene {
 
     // this.container.appendChild( this.renderer.domElement );
     
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.target.set(0, 0, 0);
-    this.controls.panSpeed = 2;
-    this.controls.zoomSpeed = 1;
-    this.controls.enableDamping = true;
-    this.controls.dampingFactor = 1.0;
-    this.controls.screenSpacePanning = true;
-    this.controls.update()// Remove all rotation limits
+    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    // this.controls.target.set(0, 0, 0);
+    // this.controls.panSpeed = 2;
+    // this.controls.zoomSpeed = 1;
+    // this.controls.enableDamping = true;
+    // this.controls.dampingFactor = 1.0;
+    // this.controls.screenSpacePanning = true;
+    // this.camera.up.set(0, 0, 1); // Change up direction to Z-axis
+    // this.controls.update()// Remove all rotation limits
+    // controls
+    this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+    this.controls.saveState();
+    this.camera.up.set(0, 1, 0); // Change up direction to Z-axis
+      
+    // controls
+    // this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+    // this.controls.saveState();
+    // this.controls.update(); 
+
     let controls = this.controls
     let camera = this.camera
+
  //    let initPos = [0, 0, 3]
  //    let radius = camera.position.distanceTo(controls.target); // Initial distance
  //    const fixedTiltAngle = Math.PI / 6; // 30 degrees tilt
@@ -96,6 +110,9 @@ export class USDZScene {
 
     this.env.rotateZ(1.57)
     this.robot.rotateZ(1.57)
+
+    this.env.rotateY(1.57)
+    this.robot.rotateY(1.57)
 
 
     this.usdzLoader = new USDZLoader(`${import.meta.env.BASE_URL}`);
