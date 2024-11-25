@@ -47,18 +47,15 @@ function App() {
     const loading = document.createElement('h1');
     loading.textContent = 'LOADING...';
     canvasContainerRef.current.appendChild(loading);
-
+    
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
-        .then(registration => {
-          console.log('SW registered: ', registration)
-          let demo = new USDZScene()
-          demo.init(viewerIsReady)
-          // canvasContainerRef.current.appendChild(demo.getElement())
-        }).catch(registrationError => {
-          console.log('SW registration failed: ', registrationError)
-        })
+      navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
+      .then(registration => {
+        console.log('SW registered: ', registration)
+        let demo = new USDZScene()
+        demo.init(viewerIsReady)
+      }).catch(registrationError => {
+        console.log('SW registration failed: ', registrationError)
       })
     }
     // Dynamically load additional scripts if required
