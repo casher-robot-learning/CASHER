@@ -78,13 +78,13 @@ export class USDZScene {
  //  camera.up.copy(upDirection); // Ensure correct tilt alignment
  //  camera.lookAt(controls.target);
  //    });
-
-    this.gui = new GUI()
+    this.gui = new GUI({container: document.getElementById("viz")})
     this.guiParams = {
       environment: 'obj2sink_1'
     }
     this.gui.add(this.guiParams, 'environment', envs).onChange( value => {
       this.readyToRender = false;
+      this.viewerIsReady(false, [this.getElement(), this.gui.domElement], this);
       this.setup()
     });
 
@@ -112,9 +112,10 @@ export class USDZScene {
   }
 
   async init(viewerIsReady) {
+    this.viewerIsReady = viewerIsReady;
     await this.setup()
-
-    viewerIsReady(this.getElement(), this);
+    
+    // viewerIsReady(true, this.getElement(), this);
     
     this.renderer.setAnimationLoop(this.render.bind(this));
   }
@@ -190,6 +191,7 @@ export class USDZScene {
 
     console.log(this.scene)
     this.readyToRender = true;
+    this.viewerIsReady(true, [this.getElement(), this.gui.domElement], this);
   }
 
   render(timeMS) {

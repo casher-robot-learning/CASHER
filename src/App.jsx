@@ -44,22 +44,30 @@ if ('serviceWorker' in navigator) {
   })
 }
 
+const loading = document.createElement('h1');
+loading.textContent = 'LOADING...';
+
 function App() {
 
   const canvasContainerRef = useRef(null);
   const [viewerReady, setViewerReady] = useState(false);
-
-  viewerIsReady = (element, demo) => {
-    setViewerReady(true)
+  
+  viewerIsReady = (val, elements, demo) => {
+    setViewerReady(val)
     canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
-    canvasContainerRef.current.appendChild(element)
+
+    if (val)  { 
+      canvasContainerRef.current.appendChild(elements[0])
+    } else {
+      canvasContainerRef.current.appendChild(loading)
+    }
+    // canvasContainerRef.current.appendChild(elements[1])
     demo.setSize(canvasContainerRef.current.clientWidth, canvasContainerRef.current.clientHeight)
   };
 
   useEffect(() => {
-    const loading = document.createElement('h1');
-    loading.textContent = 'LOADING...';
     canvasContainerRef.current.appendChild(loading);
+
     
     // Dynamically load additional scripts if required
     const loadScript = (src) => {
@@ -257,8 +265,9 @@ function App() {
 
           <div className="container  ">
             <div className="columns is-centered has-text-centered">
-              <div className="column one-third is-centered"  style={{"height": "30em", "width": "70em"}} >
-                <div className="web-viewer centered-text" ref={canvasContainerRef}></div>
+              <div className="column one-third is-centered flex"  style={{"height": "30em", "width": "70em"}} >
+                <div id="viz" className='viz'></div>
+                <div className="web-viewer centered-text" ref={canvasContainerRef} ></div>
               </div>        
             </div>
           </div>

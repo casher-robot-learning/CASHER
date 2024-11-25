@@ -53,9 +53,35 @@
     /* width: fit-content; */
 }
 
+.flex {
+  display: flex;          /* Enable Flexbox */
+  flex-direction: column;
+  align-items: center;
+}
 .centered-text {
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center;    /* Vertically center */
 }
 
+.viz {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.lil-gui {
+	--background-color: #000;
+	--widget-color: #555;
+	/* --padding: 1px; */
+  --widget-height: 1em;
+  --title-height: 10px;
+  --font-size: 15px;
+  padding: 1em;
+  padding-bottom:2em;
+  width: 100%;
+}
+.title {
+  font-size: 1em;
+  margin-bottom: 0.333em !important;
+}
