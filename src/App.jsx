@@ -31,6 +31,7 @@ import video26 from './assets/materials/videos/opencabinet.mp4';
 
 let viewerIsReady;
 if ('serviceWorker' in navigator) {
+  console.log("service worker")
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
     .then(registration => {
@@ -60,6 +61,10 @@ function App() {
   const [viewerReady, setViewerReady] = useState(false);
   
   viewerIsReady = (val, elements, demo) => {
+    console.log(val)
+    console.log(elements)
+    console.log(demo)
+    console.log(canvasContainerRef)
     setViewerReady(val)
     canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
 
