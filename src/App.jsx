@@ -54,6 +54,49 @@ function App() {
         })
       })
     }
+    // Dynamically load additional scripts if required
+    const loadScript = (src) => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+      });
+    };
+  
+    const loadDependencies = async () => {
+      try {
+        // Load jQuery (if needed for other scripts)
+        await loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
+        
+        // Load any additional scripts
+        await loadScript('https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js');
+
+        // Initialize the Bulma Carousel
+        if (window.bulmaCarousel) {
+          window.bulmaCarousel.attach("#results-carousel", {
+            slidesToScroll: 3,
+            slidesToShow: 3,
+            loop: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            pauseOnHover: true,
+          });
+          console.log("Bulma Carousel initialized successfully.");
+        } else {
+          console.error("Bulma Carousel script did not load correctly.");
+        }
+
+        await loadScript('https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js');
+        console.log("Additional scripts loaded successfully.");
+      } catch (error) {
+        console.error("Failed to load scripts", error);
+      }
+    };
+  
+    loadDependencies();
 
     return () => {
       if (canvasContainerRef.current) {
@@ -83,7 +126,7 @@ function App() {
             <div className="author-row-new">
                 <a href="https://marceltorne.github.io/">Marcel Torne<sup>1,3,*</sup></a>,
                 <a href="https://arhanjain.github.io/">Arhan Jain<sup>2,*</sup></a>,
-                <a href="https://yuanjiay.github.io/">Jiayi Yuan<sup>2,*</sup></a>,
+                <a href="https://yuanjiayiy.github.io/">Jiayi Yuan<sup>2,*</sup></a>,
                 <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2,*</sup></a>,
                 <a href="https://ankile.com/">Lars Lien Ankile<sup>1</sup></a>,
                 <a href="https://anthonysimeonov.github.io/">Anthony Simeonov<sup>1</sup></a>,
