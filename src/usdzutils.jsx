@@ -112,12 +112,17 @@ export class USDZScene {
   }
 
   async init(viewerIsReady) {
+    console.log('reach')
     this.viewerIsReady = viewerIsReady;
+    console.log('reach')
+
     await this.setup()
+    console.log('reach')
     
     // viewerIsReady(true, this.getElement(), this);
     
     this.renderer.setAnimationLoop(this.render.bind(this));
+    console.log('reach')
   }
 
   
@@ -143,11 +148,14 @@ export class USDZScene {
 
   async setup() {
 
+    console.log("meow")
     await this.loadJSON() 
+    console.log("meow")
 
     this.env.clear()
     this.robot.clear()
      
+    console.log("meow")
     // Load your file. File is of type File
     const response = await fetch(`${import.meta.env.BASE_URL}public_release/usd/${this.guiParams.environment}.usdz`);
     const blob = await response.blob();
@@ -157,6 +165,7 @@ export class USDZScene {
     });
 
     const loadedModel = await this.usdzLoader.loadFile(file, this.env);
+    console.log("meow")
 
     const response2 = await fetch(`${import.meta.env.BASE_URL}public_release/usd/franka.usdz`);
     const blob2 = await response2.blob();

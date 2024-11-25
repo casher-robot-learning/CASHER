@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
-
 import { USDZScene } from './usdzutils'
 
 import video1 from './assets/materials/videos/teaser_casher2.mp4'
@@ -36,8 +35,16 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
     .then(registration => {
       console.log('SW registered: ', registration)
+
+      if (!sessionStorage.getItem('reloaded')) {
+        // Set the flag in sessionStorage
+        sessionStorage.setItem('reloaded', 'true');
+        // Reload the page
+        location.reload();
+      }
       let demo = new USDZScene()
       demo.init(viewerIsReady)
+
     }).catch(registrationError => {
       console.log('SW registration failed: ', registrationError)
     })
