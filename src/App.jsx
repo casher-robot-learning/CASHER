@@ -30,33 +30,35 @@ import video24 from './assets/materials/videos/obj2sink.mp4';
 import video25 from './assets/materials/videos/obj2cabinet.mp4';
 import video26 from './assets/materials/videos/opencabinet.mp4';
 
-console.log("serviceWorker")
-console.log('serviceWorker' in navigator)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
-    .then(registration => {
-      console.log('SW registered: ', registration)
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError)
-    })
-  })
-}
 
 let demo = new USDZScene()
-demo.init()
 function App() {
 
   const canvasContainerRef = useRef(null);
 
   useEffect(() => {
-
-    canvasContainerRef.current.appendChild(demo.getElement())
+    console.log(demo.getElement())
+    canvasContainerRef.current.appendChild(demo.getLoadingElement())
     demo.setSize(canvasContainerRef.current.clientWidth, canvasContainerRef.current.clientHeight)
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
+        .then(registration => {
+          console.log('SW registered: ', registration)
+          demo.init()
+          canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
+          canvasContainerRef.current.appendChild(demo.getElement())
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError)
+        })
+      })
+    }
 
     return () => {
       if (canvasContainerRef.current) {
-        canvasContainerRef.current.removeChild(demo.getElement())
+        canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
+        
       }
     };
   }, []);
@@ -202,12 +204,11 @@ function App() {
       <div className="column">
 
           <h2 className="title is-3">In <b className="method">CASHER</b> we train a generalist policy with Real-to-Sim-to-Real.</h2>
-          Task    
 
           <div className="container  ">
             <div className="columns is-centered has-text-centered">
-              <div className="column one-third"  width="30%" style={{"height": "300px"}} id="viz">
-                <div ref={canvasContainerRef}></div>
+              <div className="column one-third is-centered"  style={{"height": "30em", "width": "70em"}} >
+                <div className="web-viewer" ref={canvasContainerRef}></div>
               </div>        
             </div>
           </div>
