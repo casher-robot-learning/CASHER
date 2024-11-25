@@ -30,13 +30,26 @@ import video24 from './assets/materials/videos/obj2sink.mp4';
 import video25 from './assets/materials/videos/obj2cabinet.mp4';
 import video26 from './assets/materials/videos/opencabinet.mp4';
 
+let viewerIsReady;
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
+    .then(registration => {
+      console.log('SW registered: ', registration)
+      let demo = new USDZScene()
+      demo.init(viewerIsReady)
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError)
+    })
+  })
+}
 
 function App() {
 
   const canvasContainerRef = useRef(null);
   const [viewerReady, setViewerReady] = useState(false);
 
-  const viewerIsReady = (element, demo) => {
+  viewerIsReady = (element, demo) => {
     setViewerReady(true)
     canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
     canvasContainerRef.current.appendChild(element)
@@ -48,16 +61,6 @@ function App() {
     loading.textContent = 'LOADING...';
     canvasContainerRef.current.appendChild(loading);
     
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
-      .then(registration => {
-        console.log('SW registered: ', registration)
-        let demo = new USDZScene()
-        demo.init(viewerIsReady)
-      }).catch(registrationError => {
-        console.log('SW registration failed: ', registrationError)
-      })
-    }
     // Dynamically load additional scripts if required
     const loadScript = (src) => {
       return new Promise((resolve, reject) => {
