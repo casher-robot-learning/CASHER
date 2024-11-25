@@ -52,3 +52,10 @@
     height: 100%;
     /* width: fit-content; */
 }
+
+.centered-text {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center;    /* Vertically center */
+}
+

@@ -31,24 +31,31 @@ import video25 from './assets/materials/videos/obj2cabinet.mp4';
 import video26 from './assets/materials/videos/opencabinet.mp4';
 
 
-let demo = new USDZScene()
 function App() {
 
   const canvasContainerRef = useRef(null);
+  const [viewerReady, setViewerReady] = useState(false);
+
+  const viewerIsReady = (element, demo) => {
+    setViewerReady(true)
+    canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
+    canvasContainerRef.current.appendChild(element)
+    demo.setSize(canvasContainerRef.current.clientWidth, canvasContainerRef.current.clientHeight)
+  };
 
   useEffect(() => {
-    console.log(demo.getElement())
-    canvasContainerRef.current.appendChild(demo.getLoadingElement())
-    demo.setSize(canvasContainerRef.current.clientWidth, canvasContainerRef.current.clientHeight)
+    const loading = document.createElement('h1');
+    loading.textContent = 'LOADING...';
+    canvasContainerRef.current.appendChild(loading);
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register(`${import.meta.env.BASE_URL}coi-serviceworker.js`)
         .then(registration => {
           console.log('SW registered: ', registration)
-          demo.init()
-          canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild)
-          canvasContainerRef.current.appendChild(demo.getElement())
+          let demo = new USDZScene()
+          demo.init(viewerIsReady)
+          // canvasContainerRef.current.appendChild(demo.getElement())
         }).catch(registrationError => {
           console.log('SW registration failed: ', registrationError)
         })
@@ -251,7 +258,7 @@ function App() {
           <div className="container  ">
             <div className="columns is-centered has-text-centered">
               <div className="column one-third is-centered"  style={{"height": "30em", "width": "70em"}} >
-                <div className="web-viewer" ref={canvasContainerRef}></div>
+                <div className="web-viewer centered-text" ref={canvasContainerRef}></div>
               </div>        
             </div>
           </div>

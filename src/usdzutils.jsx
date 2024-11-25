@@ -8,12 +8,11 @@ import { ThreeMFLoader } from 'three/examples/jsm/Addons.js';
 import { envs } from './constants.js';
 
 
-const usdzLoader = new USDZLoader(`${import.meta.env.BASE_URL}`);
 
 export class USDZScene {
   constructor() {
 
-    this.container = document.getElementById("viz");
+    // this.container = document.getElementById("viz");
     // this.container = document.createElement("div");
     // document.body.appendChild( this.container );
 
@@ -99,6 +98,7 @@ export class USDZScene {
     this.robot.rotateZ(1.57)
 
 
+    this.usdzLoader = new USDZLoader(`${import.meta.env.BASE_URL}`);
   }
 
   setSize(width, height) {
@@ -107,19 +107,15 @@ export class USDZScene {
     this.renderer.setSize( width, height );
   }
 
-  getLoadingElement() {
-      const div = document.createElement('div');
-      div.textContent = 'LOADING...';
-      return div;
-  }
-
   getElement() {
     return this.renderer.domElement;
   }
 
-  async init() {
+  async init(viewerIsReady) {
     await this.setup()
 
+    viewerIsReady(this.getElement(), this);
+    
     this.renderer.setAnimationLoop(this.render.bind(this));
   }
 
@@ -159,7 +155,7 @@ export class USDZScene {
       lastModified: new Date().getTime() // Optional: set last modified time
     });
 
-    const loadedModel = await usdzLoader.loadFile(file, this.env);
+    const loadedModel = await this.usdzLoader.loadFile(file, this.env);
 
     const response2 = await fetch(`${import.meta.env.BASE_URL}public_release/usd/franka.usdz`);
     const blob2 = await response2.blob();
@@ -167,12 +163,11 @@ export class USDZScene {
       type: 'model/vnd.usdz+zip',  // MIME type for USDZ
       lastModified: new Date().getTime() // Optional: set last modified time
     });
-    const loadedModel2 = await usdzLoader.loadFile(file2, this.robot);
+    const loadedModel2 = await this.usdzLoader.loadFile(file2, this.robot);
 
 
     this.bowl = this.env.children[this.obj2idx["obj"]]
     this.sink = this.env.children[this.obj2idx["background"]]
-    console.log(this.obj2idx)
     
     this.step = 0
 
