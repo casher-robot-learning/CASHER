@@ -184,15 +184,15 @@ function App() {
                 <span className="material-icons"> code </span>
                 Code
             </a>
-            <a className="paper-btn" href="">
-              <span className="material-icons" href="https://www.youtube.com/watch?v=s7U2Nk3oPog"> movie </span>
+            <a className="paper-btn" href="https://www.youtube.com/watch?v=s7U2Nk3oPog">
+              <span className="material-icons" > movie </span>
               Video 
           </a>
             <a className="paper-btn" href="https://github.com/real-to-sim-to-real/RialToGUI">
                 <span className="material-icons"> link </span>
                 GUI 
             </a>
-            <a className="paper-btn" href="">
+            <a className="paper-btn" href="https://github.com/casher-robot-learning/USDAssets">
               <span className="material-icons"> link </span>
               Assets 
           </a>
