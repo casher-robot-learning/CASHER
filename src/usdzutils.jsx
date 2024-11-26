@@ -54,7 +54,7 @@ export class USDZScene {
 
     this.gui = new GUI({container: document.getElementById("viz")})
     this.guiParams = {
-      environment: '2'
+      environment: '1'
     }
     this.gui.add(this.guiParams, 'environment', envs).onChange( value => {
       this.readyToRender = false;
