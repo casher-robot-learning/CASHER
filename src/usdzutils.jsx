@@ -27,7 +27,8 @@ export class USDZScene {
 
     // camera setup
     this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 50 );
-    this.camera.position.set(0,1,1.5);
+    this.camera.position.set(0.5,0.8,0.8);
+    // this.camera.orientation.set(0,0,0);
     this.camera.far = 100;
     this.camera.updateProjectionMatrix();
 
