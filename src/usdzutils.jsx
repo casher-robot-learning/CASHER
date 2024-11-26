@@ -33,7 +33,8 @@ export class USDZScene {
 
 
 
-    this.scene.background = new THREE.Color(0.92, 0.83, 1);
+    // this.scene.background = new THREE.Color(0.92, 0.83, 1);
+    this.scene.background = new THREE.Color(1, 1, 1);
 
     this.ambientLight = new THREE.AmbientLight( 0xffffff, 0.8 );
     this.ambientLight.name = 'AmbientLight';

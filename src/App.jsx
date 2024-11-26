@@ -169,7 +169,7 @@ function App() {
             <span><sup>3</sup> Stanford University </span>
         </div>
         <div className="affiliations">
-            <span><sup>*</sup> equal contribution </span>
+            <span><sup>*</sup> Equal contribution </span>
         </div>
 
 
@@ -225,9 +225,10 @@ function App() {
 
 
     <hr></hr>
+    <section>
 
     <div className="columns is-centered">
-        <div className="column is-three-fifths">
+        <div className="column is-four-fifths">
           <h2 className="title is-3">Abstract</h2>
           <div id="abstract" className="flex-row">
             <p>
@@ -264,8 +265,9 @@ function App() {
         </div>
         </div>
       </div>
+    </section>
       <hr></hr>
-        
+      <section>
 
       <div className="columns is-centered">
       <div className="column">
@@ -277,14 +279,16 @@ function App() {
               <div className="column one-third is-centered flex"  style={{"height": "30em", "width": "70em"}} >
                 <div id="viz" className='viz'></div>
                 <div className="web-viewer centered-text" ref={canvasContainerRef} ></div>
-                <em>Interactive 3D visualization</em>
+                <em className='interactive'>Play with me! Interactive 3D visualization</em>
               </div>        
             </div>
           </div>
             
       </div>
       </div>
-
+      </section>
+      <hr></hr>
+      <section>
       <div className="columns is-centered">
         <div className="column">
           <h2 className="title is-3"><b className="method">CASHER</b>'s paradigm allows us to finetune generalist policies without additional human demos on a digital twin of your target environment. </h2>
@@ -306,15 +310,17 @@ function App() {
 
 
     </div>
+    </section>
     <hr></hr>
 
-
+    <section>
 
     <div className="columns is-centered">
       <div className="column">
         <h2 className="title is-2">Robustness of <b className="method">CASHER</b></h2>
       </div>
     </div>
+    </section>
   <section id="overview-videos">
       <div className="columns is-centered">
           <div className="column">
@@ -359,7 +365,6 @@ function App() {
             </section>
           </div>
         </div>
-      </section>
       <div className="columns is-centered">
           <div className="column">
             <h2 className="title is-3">Multi-object Settings</h2>
@@ -441,12 +446,14 @@ function App() {
             </section>
           </div>
       </div>
+    </section>
      
       <hr></hr>
+    <section>
     <div className="columns is-centered">
         <div className="column">
           <h2 className="title is-3"><b className="method">CASHER</b> Overview</h2>
-          <div className="columns is-centered">
+          <div className="columns is-centered spaced">
             <div className="column">
               <video id="method-video"
               muted
@@ -460,14 +467,14 @@ function App() {
             </div>
           </div>
 
-          <h2 className="title is-4">1. Crowdsource a batch of real world scenes. </h2>
-          <div className="columns is-centered">
+          <h2 className="title is-4 spaced">1. Crowdsource a batch of real world scenes. </h2>
+          <div className="columns is-centered spaced2">
                 <div className="column">
                     <video id="method-video"
                     controls
                     muted
-                    autoPlay
-                    loop
+                    // autoPlay
+                    // loop
 
                     width="80%">
                     <source src={video19}
@@ -476,14 +483,14 @@ function App() {
                 </div>
             </div>
 
-            <h2 className="title is-4">2. (Optional) Create articulated object and mark the site in GUI.</h2>
-            <div className="columns is-centered">
+            <h2 className="title is-4 spaced">2. (Optional) Create articulated object and mark the site in GUI.</h2>
+            <div className="columns is-centered spaced2">
               <div className="column">
                   <video id="method-video"
                   controls
                   muted
-                  autoPlay
-                  loop
+                  // autoPlay
+                  // loop
   
                   width="80%">
                   <source src={video20}
@@ -492,14 +499,14 @@ function App() {
               </div>
             </div>
 
-          <h2 className="title is-4">3. Collect demonstrations in the simulation.</h2>
-          <div className="columns is-centered">
+          <h2 className="title is-4 spaced">3. Collect demonstrations in the simulation.</h2>
+          <div className="columns is-centered spaced2">
             <div className="column">
                 <video id="method-video"
                 controls
                 muted
-                autoPlay
-                loop
+                // autoPlay
+                // loop
 
                 width="80%">
                 <source src={video21}
@@ -507,14 +514,14 @@ function App() {
                 </video>
             </div>
             </div>
-          <h2 className="title is-4">4. RL fine-tuning from demonstrations. </h2>
-          <div className="columns is-centered">
+          <h2 className="title is-4 spaced">4. RL fine-tuning from demonstrations. </h2>
+          <div className="columns is-centered spaced2">
             <div className="column">
                 <video id="method-video"
                 controls
                 muted
-                autoPlay
-                loop
+                // autoPlay
+                // loop
 
                 width="80%">
                 <source src={video22}
@@ -522,14 +529,14 @@ function App() {
                 </video>
             </div>
             </div>
-          <h2 className="title is-4">5. Teacher-student distillation from state-based policy to a generalist visuomotor policy.</h2>
-          <div className="columns is-centered">
+          <h2 className="title is-4 spaced">5. Teacher-student distillation from state-based policy to a generalist visuomotor policy.</h2>
+          <div className="columns is-centered spaced2">
             <div className="column">
                 <video id="method-video"
                 controls
                 muted
-                autoPlay
-                loop
+                // autoPlay
+                // loop
 
                 width="80%">
                 <source src={video23}
@@ -539,10 +546,10 @@ function App() {
             </div>
         </div>
       </div>
-       
+      </section>
   <hr></hr>
 
-
+      <section>
       <div className="columns is-centered">
         <div className="column">
           <h2 className="title is-2">Tasks</h2>
@@ -554,8 +561,6 @@ function App() {
               <video id="method-video"
               muted
               autoPlay
-              loop
-
               width="80%">
               <source src={video24}
               type="video/mp4"></source>
@@ -590,29 +595,33 @@ function App() {
               </video>
           </div>
         </div>
-
-  <hr></hr>
+        </section>
   
         
 
-    {/* <section className="section" id="BibTeX">
-        <div className="container is-max-desktop content">
-          <h2 className="title">BibTeX</h2>
-          <pre><code>@article{torne2024casher,
-        author    = {Torne, Marcel 
-                    and Jain, Arhan 
-                    and Vidyaaranya, Macha 
-                    and Yuan, Jiayi 
-                    and Ankile, Lars Lien
-                    and Simeonov, Anthony
-                    and Gupta, Abhishek 
-                    and Agrawal, Pulkit},
-        title     = {Robot Learning with Super-Linear Scaling},
-        journal   = {Arxiv},
-        year      = {2024},
-      }</code></pre>
-        </div>
-      </section> */}
+        <section className="section" id="BibTeX">
+          <div className="container is-max-desktop content">
+            <h2 className="title">BibTeX</h2>
+            <pre>
+              <code>
+                {`@article{torne2024casher,
+          author    = {Torne, Marcel 
+                      and Jain, Arhan 
+                      and Vidyaaranya, Macha 
+                      and Yuan, Jiayi 
+                      and Ankile, Lars Lien
+                      and Simeonov, Anthony
+                      and Gupta, Abhishek 
+                      and Agrawal, Pulkit},
+          title     = {Robot Learning with Super-Linear Scaling},
+          journal   = {Arxiv},
+          year      = {2024},
+        }`}
+              </code>
+            </pre>
+          </div>
+        </section>
+
 
       <footer className="footer">
           <div className="columns is-centered">

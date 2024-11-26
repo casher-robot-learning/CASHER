@@ -52,6 +52,12 @@
     height: 100%;
     /* width: fit-content; */
 }
+.interactive {
+  font-size: 40px;
+}
+.web-viewer em{
+  font-size: 40px;
+}
 
 .flex {
   display: flex;          /* Enable Flexbox */

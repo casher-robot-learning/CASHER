@@ -171,11 +171,24 @@ section {
   margin-bottom: 16px;
 }
 hr {
+  text-align: center;
+  width: 100%;
   height: 1px;
   border: 0; 
   border-top: 1px solid #ddd;
-  margin: 0;
+  margin: 30px auto;
 }
+
+.spaced{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.spaced2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .material-icons {
   vertical-align: -6px;
 }
@@ -190,6 +203,9 @@ p {
 text-align: left;
 }
 
+#abstract {
+  text-align: justify;
+}
 
 video {
   display: block;
