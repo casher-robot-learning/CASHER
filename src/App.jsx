@@ -180,10 +180,6 @@ function App() {
                 <span className="material-icons"> description </span> 
                  Paper
             </a>
-            <a className="paper-btn" href="">
-                <span className="material-icons"> code </span>
-                Code
-            </a>
             <a className="paper-btn" href="https://www.youtube.com/watch?v=s7U2Nk3oPog">
               <span className="material-icons" > movie </span>
               Video 
