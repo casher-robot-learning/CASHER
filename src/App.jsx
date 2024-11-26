@@ -157,6 +157,7 @@ function App() {
                 <a href="https://www.linkedin.com/in/vidyaaranya-macha/">Vidyaaranya Macha<sup>2,*</sup></a>,
                 <a href="https://ankile.com/">Lars Lien Ankile<sup>1</sup></a>,
                 <a href="https://anthonysimeonov.github.io/">Anthony Simeonov<sup>1</sup></a>,
+                <br />
                 <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1</sup></a>,
                 <a href="https://abhishekunique.github.io">Abhishek Gupta<sup>2</sup></a>
             </div>
