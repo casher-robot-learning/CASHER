@@ -27,7 +27,7 @@ export class USDZScene {
 
     // camera setup
     this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 50 );
-    this.camera.position.set(0.5,0.8,0.8);
+    this.camera.position.set(-0.7,0.8,0);
     // this.camera.orientation.set(0,0,0);
     this.camera.far = 100;
     this.camera.updateProjectionMatrix();
@@ -49,6 +49,7 @@ export class USDZScene {
 
     this.controls = new OrbitControls( this.camera, this.renderer.domElement );
     this.controls.saveState();
+    this.controls.target.set(0, -0.0 , -0.5);
     this.camera.up.set(0, 1, 0); // Change up direction to Z-axis
       
     let controls = this.controls
