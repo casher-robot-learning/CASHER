@@ -48,7 +48,7 @@
     border-color: black;
     border-radius: 15px;
     overflow:hidden;
-    width: 100%;
+    width: 50%;
     height: 100%;
     /* width: fit-content; */
 }

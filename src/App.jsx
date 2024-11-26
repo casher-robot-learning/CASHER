@@ -280,6 +280,7 @@ function App() {
               <div className="column one-third is-centered flex"  style={{"height": "30em", "width": "70em"}} >
                 <div id="viz" className='viz'></div>
                 <div className="web-viewer centered-text" ref={canvasContainerRef} ></div>
+                <em>Interactive 3D visualization</em>
               </div>        
             </div>
           </div>

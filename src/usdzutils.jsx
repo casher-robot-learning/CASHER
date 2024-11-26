@@ -5,6 +5,10 @@ import { USDZLoader } from "three-usdz-loader";
 import { wgsl } from 'three/webgpu';
 import { ThreeMFLoader } from 'three/examples/jsm/Addons.js';
 
+import { LoadingManager } from 'three';
+import URDFLoader from 'urdf-loader';
+
+
 import { envs } from './constants.js';
 
 
@@ -41,60 +45,16 @@ export class USDZScene {
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 
-    // this.container.appendChild( this.renderer.domElement );
-    
-    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    // this.controls.target.set(0, 0, 0);
-    // this.controls.panSpeed = 2;
-    // this.controls.zoomSpeed = 1;
-    // this.controls.enableDamping = true;
-    // this.controls.dampingFactor = 1.0;
-    // this.controls.screenSpacePanning = true;
-    // this.camera.up.set(0, 0, 1); // Change up direction to Z-axis
-    // this.controls.update()// Remove all rotation limits
-    // controls
     this.controls = new OrbitControls( this.camera, this.renderer.domElement );
     this.controls.saveState();
     this.camera.up.set(0, 1, 0); // Change up direction to Z-axis
       
-    // controls
-    // this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-    // this.controls.saveState();
-    // this.controls.update(); 
-
     let controls = this.controls
     let camera = this.camera
 
- //    let initPos = [0, 0, 3]
- //    let radius = camera.position.distanceTo(controls.target); // Initial distance
- //    const fixedTiltAngle = Math.PI / 6; // 30 degrees tilt
- //
- //    this.controls.addEventListener('change', () => {
- //
- //      // Calculate the new camera position around the Z-axis
- //      //
- //      camera.position.z = initPos[2]; // Keep Z constant
- //       // Compute the angle from the mouse movement
- //      let angle = Math.atan2(camera.position.y - controls.target.y, camera.position.x - controls.target.x);
- //
- //      // Update camera position to maintain circular motion in the X-Y plane
- //      camera.position.x = controls.target.x + radius * Math.cos(angle);
- //      camera.position.y = controls.target.y + radius * Math.sin(angle);
- //
- // const lookDirection = new THREE.Vector3(
- //    -Math.cos(angle), // Point backward in X based on orbit
- //    -Math.sin(angle), // Point backward in Y based on orbit
- //    0 // Stay horizontal in the Z-plane
- //  );
- //
- //  // Dynamically tilt the camera around the Z-axis
- //  const upDirection = new THREE.Vector3(0, 0, 1); // Z-axis up
- //  camera.up.copy(upDirection); // Ensure correct tilt alignment
- //  camera.lookAt(controls.target);
- //    });
     this.gui = new GUI({container: document.getElementById("viz")})
     this.guiParams = {
-      environment: 'obj2sink_1'
+      environment: '2'
     }
     this.gui.add(this.guiParams, 'environment', envs).onChange( value => {
       this.readyToRender = false;
@@ -116,6 +76,8 @@ export class USDZScene {
 
 
     this.usdzLoader = new USDZLoader(`${import.meta.env.BASE_URL}`);
+    this.manager = new LoadingManager();
+    this.urdfLoader = new URDFLoader(this.manager);
   }
 
   setSize(width, height) {
@@ -148,7 +110,7 @@ export class USDZScene {
        // Fetch the JSON file
       // const response = await fetch('/public_release/obj2sink_2.json'); // Adjust path as needed
       // demo.init()
-      const response = await fetch(`${import.meta.env.BASE_URL}public_release/${this.guiParams.environment}.json`);
+      const response = await fetch(`${import.meta.env.BASE_URL}public_release/obj2sink_${this.guiParams.environment}.json`);
       // Check for response errors
       if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -174,7 +136,7 @@ export class USDZScene {
      
     console.log("meow")
     // Load your file. File is of type File
-    const response = await fetch(`${import.meta.env.BASE_URL}public_release/usd/${this.guiParams.environment}.usdz`);
+    const response = await fetch(`${import.meta.env.BASE_URL}public_release/usd/obj2sink_${this.guiParams.environment}.usdz`);
     const blob = await response.blob();
      const file = new File([blob], 'test.usdz', {
       type: 'model/vnd.usdz+zip',  // MIME type for USDZ
@@ -184,14 +146,20 @@ export class USDZScene {
     const loadedModel = await this.usdzLoader.loadFile(file, this.env);
     console.log("meow")
 
-    const response2 = await fetch(`${import.meta.env.BASE_URL}public_release/usd/franka.usdz`);
-    const blob2 = await response2.blob();
-     const file2 = new File([blob2], 'test2.usdz', {
-      type: 'model/vnd.usdz+zip',  // MIME type for USDZ
-      lastModified: new Date().getTime() // Optional: set last modified time
-    });
-    const loadedModel2 = await this.usdzLoader.loadFile(file2, this.robot);
+    // const response2 = await fetch(`${import.meta.env.BASE_URL}public_release/usd/franka.usdz`);
+    // const blob2 = await response2.blob();
+    //  const file2 = new File([blob2], 'test2.usdz', {
+    //   type: 'model/vnd.usdz+zip',  // MIME type for USDZ
+    //   lastModified: new Date().getTime() // Optional: set last modified time
+    // });
+    // const loadedModel2 = await this.usdzLoader.loadFile(file2, this.robot);
 
+    // this.urdfLoader.load(`${import.meta.env.BASE_URL}franka_description/meshes/panda_arm_hand.urdf`, (robot) => {
+    //   this.robot.add(robot)
+    // });
+    //
+    let robot = await this.urdfLoader.loadAsync(`${import.meta.env.BASE_URL}franka_description/meshes/panda_arm_hand.urdf`)
+    this.robot.add(robot)
 
     this.bowl = this.env.children[this.obj2idx["obj"]]
     this.sink = this.env.children[this.obj2idx["background"]]
@@ -261,26 +229,12 @@ export class USDZScene {
       this.sink.quaternion.set(...quat);
 
       
-      // newPos = pos1.clone().add(pos2);
-      // newQuat = quat1.clone().multiply(quat2);
-      // this.sinkGroup.position.set(...newPos);
-      // this.sinkGroup.quaternion.set(...newQuat);
-
-      let p = 0
-      for (let link in this.link2idx) {
-        let pose = this.traj[step][link]
-        pos = new THREE.Vector3(...pose.pos)
-        quat = new THREE.Quaternion(...pose.rot)
-        var mat = new THREE.Matrix4().makeRotationFromQuaternion(quat)
-        mat.multiply(permuteMat)
-        this.robot.children[this.link2idx[link]* 2].position.set(pos.x, pos.y, pos.z)
-        this.robot.children[this.link2idx[link]* 2].quaternion.set(...quat)
-      // for(let link = 0; link < 22; link+=2) {
-      //   this.robot.children[link].position.set(p,p,p)
-        this.robot.children[this.link2idx[link]*2].updateMatrix()
-      //   p += 0.1
-
+      for (let i = 0; i < 7; i++) {
+        const val = this.traj[step].jp[i]
+        this.robot.children[0].setJointValue(`panda_joint${i+1}`, val)
       }
+      this.robot.children[0].setJointValue(`panda_finger_joint1`, this.traj[step].jp[7])
+      this.robot.children[0].setJointValue(`panda_finger_joint2`, this.traj[step].jp[8])
 
 
 
