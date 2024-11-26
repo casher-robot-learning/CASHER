@@ -48,7 +48,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  width: 100%;
   min-height: 100vh;
 }
 
@@ -164,7 +164,8 @@ section {
   text-align: center;  
 }
 .screenshot {
-  width: 256px;
+  max-width: 256px;
+  width: 100%;
   border: 1px solid #ddd;
 }
 .screenshot-el {
@@ -272,7 +273,8 @@ border-radius: 2px;
 background-color: #444;
 color: white !important;
 font-size: 20px;
-width: 230px;
+max-width: 230px;
+width:100%;
 font-weight: 600;
 }
 .paper-btn-parent {
@@ -303,6 +305,7 @@ font-weight: 600;
 
 .topnav div {
   max-width: 1070px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -385,3 +388,12 @@ button {
     background-color: #f9f9f9;
   }
 }
+
+/* Base styles (for larger screens) */
+.container {
+  max-width: 1200px;  
+  width: 100%; /* Ensure the container resizes */
+  margin: 0 auto;
+}
+
+

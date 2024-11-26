@@ -268,24 +268,15 @@ function App() {
     </section>
       <hr></hr>
       <section>
+      <h2 className="title is-3">In <b className="method">CASHER</b> we train a generalist policy with Real-to-Sim-to-Real.</h2>
 
-      <div className="columns is-centered">
-      <div className="column">
+      <div className="centered-container" style={{"widht": "70em", "height": "40em"}}>
+        <div id="viz" className="viz" ></div>
+        <div className="web-viewer" ref={canvasContainerRef} ></div>
+        <em className="interactive">Play with me! Interactive 3D visualization</em>
+      </div>
 
-          <h2 className="title is-3">In <b className="method">CASHER</b> we train a generalist policy with Real-to-Sim-to-Real.</h2>
-
-          <div className="container  ">
-            <div className="columns is-centered has-text-centered">
-              <div className="column one-third is-centered flex"  style={{"height": "30em", "width": "70em"}} >
-                <div id="viz" className='viz'></div>
-                <div className="web-viewer centered-text" ref={canvasContainerRef} ></div>
-                <em className='interactive'>Play with me! Interactive 3D visualization</em>
-              </div>        
-            </div>
-          </div>
             
-      </div>
-      </div>
       </section>
       <hr></hr>
       <section>
