@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import { USDZScene } from './usdzutils'
 
-import video1 from './assets/materials/videos/teaser_casher2.mp4'
+import video1 from './assets/materials/videos/teaser_casher2_removed_pause.mp4'
 // import video2 from './assets/materials/videos/mugandshelfdisturbances.mp4';
 import video3 from './assets/materials/videos/scanned_deployment_finetuning.mp4';
 import video4 from './assets/materials/videos/smaller/snack_overflow_right.mp4';
@@ -19,7 +19,7 @@ import video14 from './assets/materials/videos/smaller/messy-zerosot.mp4';
 import video15 from './assets/materials/videos/smaller/disturbance-zeroshot.mp4';
 import video16 from './assets/materials/videos/smaller/obj2cab-lowlight-fewshot.mp4';
 import video17 from './assets/materials/videos/smaller/obj2cab-messy-fewshot.mp4';
-import video18 from './assets/materials/videos/casher-pipeline.mp4';
+import video18 from './assets/materials/videos/casher-pipeline-v2.mp4';
 import video19 from './assets/materials/videos/crowdsourcing.mp4';
 import video20 from './assets/materials/videos/gui.mp4';
 import video21 from './assets/materials/videos/demo.mp4';
@@ -28,6 +28,11 @@ import video23 from './assets/materials/videos/teacherstudentdistillation.mp4';
 import video24 from './assets/materials/videos/obj2sink.mp4';
 import video25 from './assets/materials/videos/obj2cabinet.mp4';
 import video26 from './assets/materials/videos/opencabinet.mp4';
+import video27 from './assets/materials/videos/smaller/obj2cabinet1vf.mp4';
+import video28 from './assets/materials/videos/smaller/opencab-10env-fewshot.mp4';
+import video29 from './assets/materials/videos/smaller/obj2cab-fewshot.mp4';
+import video30 from './assets/materials/videos/smaller/messy-zeroshot-new.mp4';
+import video31 from './assets/materials/videos/smaller/multiobject-IL.mp4';
 
 let viewerIsReady;
 if ('serviceWorker' in navigator) {
@@ -350,6 +355,24 @@ function App() {
                                 type="video/mp4"></source>
                       </video>
                     </div>
+                    <div className="item item-steve">
+                      <video poster="" id="steve" autoPlay controls muted loop playsinline height="100%">
+                        <source src={video27}
+                                type="video/mp4"></source>
+                      </video>
+                    </div>
+                    <div className="item item-steve">
+                      <video poster="" id="steve" autoPlay controls muted loop playsinline height="100%">
+                        <source src={video28}
+                                type="video/mp4"></source>
+                      </video>
+                    </div>
+                    <div className="item item-steve">
+                      <video poster="" id="steve" autoPlay controls muted loop playsinline height="100%">
+                        <source src={video29}
+                                type="video/mp4"></source>
+                      </video>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,6 +407,18 @@ function App() {
                       <div className="item item-chair-tp">
                         <video poster="" id="chair-tp" autoPlay controls muted loop playsinline height="300px">
                           <source src={video12}
+                                  type="video/mp4"></source>
+                        </video>
+                      </div>
+                      <div className="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoPlay controls muted loop playsinline height="300px">
+                          <source src={video31}
+                                  type="video/mp4"></source>
+                        </video>
+                      </div>
+                      <div className="item item-chair-tp">
+                        <video poster="" id="chair-tp" autoPlay controls muted loop playsinline height="300px">
+                          <source src={video10}
                                   type="video/mp4"></source>
                         </video>
                       </div>
@@ -428,6 +463,12 @@ function App() {
                         <div className="item item-blueshirt">
                           <video poster="" id="blueshirt" autoPlay controls muted loop playsinline height="300px">
                             <source src={video17}
+                                    type="video/mp4"></source>
+                          </video>
+                        </div>
+                        <div className="item item-blueshirt">
+                          <video poster="" id="blueshirt" autoPlay controls muted loop playsinline height="300px">
+                            <source src={video30}
                                     type="video/mp4"></source>
                           </video>
                         </div>
