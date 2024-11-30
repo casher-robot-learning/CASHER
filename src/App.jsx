@@ -206,6 +206,7 @@ function App() {
     <div className="columns is-centered">
       <div className="column">
           <video id="method-video"
+          controls
           muted
           autoPlay
           loop
