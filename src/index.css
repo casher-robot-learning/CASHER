@@ -204,8 +204,13 @@ p {
 text-align: left;
 }
 
+.abstract {
+  text-align: justify;
+  line-height: 2;
+}
 #abstract {
   text-align: justify;
+  line-height: 2;
 }
 
 video {
