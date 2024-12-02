@@ -238,23 +238,17 @@ function App() {
           <h2 className="title is-3">Abstract</h2>
           <div id="abstract" className="flex-row">
             <p>
-            Scaling robot learning requires data collection pipelines that scale favorably 
-            with human effort to ensure a sufficient diversity and quality of expert data. 
-            In this work, we propose <em>Crowdsourcing and Amortizing Human Effort for Real-to-Sim-to-Real</em> 
-             (<b>CASHER</b>), a pipeline for scaling up data collection and learning generalist policies where the 
-            performance scales superlinearly with respect to human effort. The key idea is to crowdsource 
-            digital twins of real-world scenes using 3D reconstruction techniques and collect large-scale 
-            data in these simulation scenes, rather than in the real-world. Data collection in simulation 
-            is initially driven by reinforcement learning bootstrapped with human demonstrations. As the 
-            training of a generalist policy progresses across environments, its generalization capabilities 
-            can be used to replace human effort with model generated demonstrations. This results in a 
-            pipeline where environments are easily sourced from non-experts through 3D capture, while behavioral 
-            data is collected with continually reducing amounts of human effort. We analyze the zero-shot and 
-            few-shot scaling laws of <b>CASHER</b> on three real-world tasks: <em>placing mugs/bowls/cups into a sink</em>, 
-            <em>placing boxes on a shelf</em> and <em>opening cabinets</em> across a diverse range of settings. 
-            We also demonstrate that <b>CASHER</b> enables us to fine-tune pre-trained policies to a target 
-            scenario by simply using a 3D scan of the target scenario at train time and without requiring 
-            additional human demonstrations. 
+            Scaling robot learning requires data collection pipelines that scale favorably with human effort. 
+            In this work, we propose <em>Crowdsourcing and Amortizing Human Effort for Real-to-Sim-to-Real</em>(<b>CASHER</b>), 
+            a pipeline for scaling up data collection and learning in simulation where the performance scales 
+            superlinearly with human effort. The key idea is to crowdsource digital twins of real-world scenes 
+            using 3D reconstruction and collect large-scale data in simulation, rather than the real-world. Data 
+            collection in simulation is initially driven by RL, bootstrapped with human demonstrations. As the training 
+            of a generalist policy progresses across environments, its generalization capabilities can be used to replace 
+            human effort with model generated demonstrations. This results in a pipeline where behavioral data is collected 
+            in simulation with continually reducing human effort. We show that <b>CASHER</b> demonstrates zero-shot and few-shot 
+            scaling laws on three real-world tasks across diverse scenarios. We show that <b>CASHER</b> enables fine-tuning of 
+            pre-trained policies to a target scenario using a video scan without any additional human effort.
             </p>
         </div>
         </div>
