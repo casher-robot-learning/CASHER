@@ -9,7 +9,7 @@ import { LoadingManager } from 'three';
 import URDFLoader from 'urdf-loader';
 
 
-import { envs } from './constants.js';
+import { envs, name2env } from './constants.js';
 
 
 
@@ -57,7 +57,7 @@ export class USDZScene {
 
     this.gui = new GUI({container: document.getElementById("viz")})
     this.guiParams = {
-      environment: '1'
+      environment: 'Dish Cleanup 1'
     }
     this.gui.add(this.guiParams, 'environment', envs).onChange( value => {
       this.readyToRender = false;
@@ -113,7 +113,7 @@ export class USDZScene {
        // Fetch the JSON file
       // const response = await fetch('/public_release/obj2sink_2.json'); // Adjust path as needed
       // demo.init()
-      const response = await fetch(`${import.meta.env.BASE_URL}public_release/obj2sink_${this.guiParams.environment}.json`);
+      const response = await fetch(`${import.meta.env.BASE_URL}public_release/${name2env[this.guiParams.environment]}.json`);
       // Check for response errors
       if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -123,6 +123,11 @@ export class USDZScene {
 
       this.traj = data["traj"];
       this.obj2idx = data["obj2idx"]
+      if (data.hasOwnProperty("offset")) {
+        this.offset = data["offset"]
+      } else {
+        this.offset = [0,0,0]
+      }
     } catch (error) {
       console.log("error in json:", error)
     }
@@ -139,7 +144,7 @@ export class USDZScene {
      
     console.log("meow")
     // Load your file. File is of type File
-    const response = await fetch(`${import.meta.env.BASE_URL}public_release/usd/obj2sink_${this.guiParams.environment}.usdz`);
+    const response = await fetch(`${import.meta.env.BASE_URL}public_release/usd/${name2env[this.guiParams.environment]}.usdz`);
     const blob = await response.blob();
      const file = new File([blob], 'test.usdz', {
       type: 'model/vnd.usdz+zip',  // MIME type for USDZ
@@ -228,8 +233,18 @@ export class USDZScene {
 
       // var newQuat = new THREE.Quaternion().setFromRotationMatrix(mat)
 
-      this.sink.position.set(pos.x, pos.y, pos.z)
+      this.sink.position.set(
+        pos.x + this.offset[0],
+        pos.y + this.offset[1], 
+        pos.z + this.offset[2]
+      )
       this.sink.quaternion.set(...quat);
+
+
+      // this.sink.translateX(-0.35)
+      // this.sink.translateZ(0.25)
+      // this.sink.translateY(-0.15)
+    // this.env.translateX(-0.2)
 
       
       for (let i = 0; i < 7; i++) {
