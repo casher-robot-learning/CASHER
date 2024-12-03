@@ -619,19 +619,14 @@ function App() {
             <h2 className="title">BibTeX</h2>
             <pre>
               <code>
-                {`@article{torne2024casher,
-          author    = {Torne, Marcel 
-                      and Jain, Arhan 
-                      and Vidyaaranya, Macha 
-                      and Yuan, Jiayi 
-                      and Ankile, Lars Lien
-                      and Simeonov, Anthony
-                      and Gupta, Abhishek 
-                      and Agrawal, Pulkit},
-          title     = {Robot Learning with Super-Linear Scaling},
-          journal   = {Arxiv},
-          year      = {2024},
-        }`}
+                {`@misc{torne2024robotlearningsuperlinearscaling,
+                    title={Robot Learning with Super-Linear Scaling}, 
+                    author={Marcel Torne and Arhan Jain and Jiayi Yuan and Vidaaranya Macha and Lars Ankile and Anthony Simeonov and Pulkit Agrawal and Abhishek Gupta},
+                    year={2024},
+                    eprint={2412.01770},
+                    archivePrefix={arXiv},
+                    primaryClass={cs.RO},
+                    url={https://arxiv.org/abs/2412.01770}, }`}
               </code>
             </pre>
           </div>
@@ -642,7 +637,7 @@ function App() {
           <div className="columns is-centered">
               <div className="content">
                 <p>
-                    This webpage template was inspired from <a href='https://nv-tlabs.github.io/LION/'>LION</a>, <a href='https://nerfies.github.io'>Nerfies</a>, <a href='https://liruiw.github.io/policycomp/'>PoCo</a> and <a href='https://human-guided-exploration.github.io/HuGE/'>HuGE</a>.
+                    This webpage template was inspired from <a href='https://nv-tlabs.github.io/LION/'>LION</a>, <a href='https://nerfies.github.io'>Nerfies</a>, <a href='https://liruiw.github.io/policycomp/'>PoCo</a> and <a href='https://real-to-sim-to-real.github.io/RialTo/'>RialTo</a>.
                 </p>
             </div>
         </div>
