@@ -9,6 +9,7 @@ export const envs = [
   "Dish Cleanup 3",
   "Dish Cleanup 4",
   "Dish Cleanup 5",
+  "Cabinet Opening 1",
 ]
 export const name2env = {
   // "Object Shelving 1": "obj2cabinet_4",
@@ -21,6 +22,7 @@ export const name2env = {
   "Dish Cleanup 3": "obj2sink_9",
   "Dish Cleanup 4": "obj2sink_10",
   "Dish Cleanup 5": "obj2sink_14",
+  "Cabinet Opening 1": "cab_4",
 };
 
 
