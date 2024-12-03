@@ -182,7 +182,7 @@ function App() {
 
         <div >
             <div className="paper-btn-parent">
-            <a className="paper-btn" href="">
+            <a className="paper-btn" href="https://arxiv.org/abs/2412.01770">
                 <span className="material-icons"> description </span> 
                  Paper
             </a>
