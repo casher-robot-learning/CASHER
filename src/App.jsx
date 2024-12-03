@@ -20,7 +20,7 @@ import video15 from './assets/materials/videos/smaller/disturbance-zeroshot.mp4'
 import video16 from './assets/materials/videos/smaller/obj2cab-lowlight-fewshot.mp4';
 import video17 from './assets/materials/videos/smaller/obj2cab-messy-fewshot.mp4';
 import video18 from './assets/materials/videos/casher-pipeline-v2.mp4';
-import video19 from './assets/materials/videos/crowdsourcing.mp4';
+import video19 from './assets/materials/videos/crowdsourcing_twitter.mp4';
 import video20 from './assets/materials/videos/gui.mp4';
 import video21 from './assets/materials/videos/sublinear_effort_demos_v2.mp4';
 import video22 from './assets/materials/videos/rlfinetune.mp4';
