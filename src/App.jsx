@@ -177,6 +177,9 @@ function App() {
             <span><sup>*</sup> Equal contribution </span>
         </div>
 
+        <h2 className="subtitle">
+          Robotics: Science and Systems 2025
+        </h2>
 
         </center>
 
