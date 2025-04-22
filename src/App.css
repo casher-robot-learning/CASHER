@@ -19,6 +19,15 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0.5em 0 1em;
+  color: #555; /* or whatever fits your theme */
+  text-align: center;
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
