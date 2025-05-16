@@ -178,7 +178,8 @@ function App() {
         </div>
 
         <h2 className="subtitle">
-          Robotics: Science and Systems 2025
+    
+          <b>Robotics: Science and Systems 2025</b>
         </h2>
 
         </center>
